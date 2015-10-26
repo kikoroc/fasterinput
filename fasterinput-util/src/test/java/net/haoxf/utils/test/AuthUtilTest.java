@@ -17,11 +17,16 @@ public class AuthUtilTest extends TestCase{
     public void testAuth(){
         long uid = 123456l;
         long timestamp = new Date().getTime();
-        String secretKey = "testtesttesttest";
 
         try {
-            String token = AuthUtil.generateToken(uid, timestamp, secretKey);
-            AuthUtil.AuthRet ret = AuthUtil.parseToken(token, secretKey);
+            long st = System.currentTimeMillis();
+            String token = AuthUtil.generateToken(uid, timestamp);
+            long et = System.currentTimeMillis();
+            System.out.println("generate token:"+token+",cost:"+(et-st)+" ms.");
+            st = System.currentTimeMillis();
+            AuthUtil.AuthRet ret = AuthUtil.parseToken(token);
+            et = System.currentTimeMillis();
+            System.out.println("parse token:"+ret+",cost:"+(et-st)+" ms.");
             Assert.assertEquals(ret.getUid(), uid);
             Assert.assertEquals(ret.getTimestamp(), timestamp);
         }catch (Exception e){

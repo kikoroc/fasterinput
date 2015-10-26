@@ -10,6 +10,7 @@ import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.*;
+import java.util.Random;
 
 /**
  * wangpeng @ fasterinput
@@ -22,20 +23,22 @@ public class AuthUtil {
      * @see //blog.poxiao.me/p/advanced-encryption-standard-and-block-cipher-mode/
      */
     private static final String CIPHER_ALGORITHM = "AES/CBC/PKCS7Padding";
-    //TODO
-    private static final byte[] ivBytes = {
-            0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-            0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-    };
+    private static final byte[] ivBytes;
     static {
         Security.addProvider(new BouncyCastleProvider());
+        //generate random ivbytes.
+        Random random = new Random();
+        byte[] bytes = new byte[16];
+        for(int i = 0; i < bytes.length; i++){
+            bytes[i] = (byte) random.nextInt(Byte.MAX_VALUE + 1);
+        }
+        ivBytes = bytes;
     }
 
     /**
      *
      * @param uid
      * @param timestamp
-     * @param key （需要16位）
      * @return
      */
     public static String generateToken(long uid, long timestamp) throws NoSuchPaddingException, NoSuchAlgorithmException,
