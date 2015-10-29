@@ -1,15 +1,17 @@
 package net.haoxf.fasterinput.utils;
 
 import net.haoxf.fasterinput.consts.Consts;
-import net.haoxf.fasterinput.exceptions.SecretKeyLengthException;
-import org.apache.commons.codec.DecoderException;
+import net.haoxf.fasterinput.exceptions.TokenException;
 import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
-import javax.crypto.*;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import java.security.*;
+import java.security.Security;
 import java.util.Random;
 
 /**
@@ -18,6 +20,7 @@ import java.util.Random;
  * 15-10-25
  */
 public class AuthUtil {
+    protected static Log log = LogFactory.getLog(AuthUtil.class);
     private static final String KEY_ALGORITHM = "AES";
     /**
      * @see //blog.poxiao.me/p/advanced-encryption-standard-and-block-cipher-mode/
@@ -41,34 +44,40 @@ public class AuthUtil {
      * @param timestamp
      * @return
      */
-    public static String generateToken(long uid, long timestamp) throws NoSuchPaddingException, NoSuchAlgorithmException,
-            NoSuchProviderException, InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException,
-            IllegalBlockSizeException, SecretKeyLengthException {
-        secretKeyLegal(Consts.SECRET_KEY);
-        //pc上的java只有PKCS5Padding，没有PKCS7Padding，所以需要引入BouncyCastle库，并在这里传入"BC"参数指定使用这个库的加解密算法
-        Cipher cipher = Cipher.getInstance(CIPHER_ALGORITHM, "BC");
-        SecretKey secretKey = new SecretKeySpec(Consts.SECRET_KEY.getBytes(), KEY_ALGORITHM);
-        cipher.init(Cipher.ENCRYPT_MODE, secretKey, new IvParameterSpec(ivBytes));
+    public static String generateToken(long uid, long timestamp) throws TokenException {
+        try {
+            secretKeyLegal(Consts.SECRET_KEY);
+            //pc上的java只有PKCS5Padding，没有PKCS7Padding，所以需要引入BouncyCastle库，并在这里传入"BC"参数指定使用这个库的加解密算法
+            Cipher cipher = Cipher.getInstance(CIPHER_ALGORITHM, "BC");
+            SecretKey secretKey = new SecretKeySpec(Consts.SECRET_KEY.getBytes(), KEY_ALGORITHM);
+            cipher.init(Cipher.ENCRYPT_MODE, secretKey, new IvParameterSpec(ivBytes));
 
-        String macData = uid + "|" + timestamp;
-        byte[] retBytes = cipher.doFinal(macData.getBytes());
-        return new String(new Hex().encode(retBytes));
+            String macData = uid + "|" + timestamp;
+            byte[] retBytes = cipher.doFinal(macData.getBytes());
+            return new String(new Hex().encode(retBytes));
+        }catch(Exception ex){
+            log.error("生成token出错。", ex);
+            throw new TokenException("生成token失败。");
+        }
     }
 
-    public static AuthRet parseToken(String token) throws NoSuchPaddingException, NoSuchAlgorithmException,
-            NoSuchProviderException, InvalidAlgorithmParameterException, InvalidKeyException, DecoderException,
-            BadPaddingException, IllegalBlockSizeException, SecretKeyLengthException {
-        secretKeyLegal(Consts.SECRET_KEY);
-        Cipher cipher = Cipher.getInstance(CIPHER_ALGORITHM, "BC");
-        SecretKey secretKey = new SecretKeySpec(Consts.SECRET_KEY.getBytes(), KEY_ALGORITHM);
-        cipher.init(Cipher.DECRYPT_MODE, secretKey, new IvParameterSpec(ivBytes));
+    public static AuthRet parseToken(String token) throws TokenException {
+        try {
+            secretKeyLegal(Consts.SECRET_KEY);
+            Cipher cipher = Cipher.getInstance(CIPHER_ALGORITHM, "BC");
+            SecretKey secretKey = new SecretKeySpec(Consts.SECRET_KEY.getBytes(), KEY_ALGORITHM);
+            cipher.init(Cipher.DECRYPT_MODE, secretKey, new IvParameterSpec(ivBytes));
 
-        byte[] retBytes = cipher.doFinal(new Hex().decode(token.getBytes()));
-        String ret = new String(retBytes);
-        return new AuthRet(Long.valueOf(ret.split("\\|")[0]), Long.valueOf(ret.split("\\|")[1]));
+            byte[] retBytes = cipher.doFinal(new Hex().decode(token.getBytes()));
+            String ret = new String(retBytes);
+            return new AuthRet(Long.valueOf(ret.split("\\|")[0]), Long.valueOf(ret.split("\\|")[1]));
+        }catch(Exception ex){
+            log.error("解析token失败。", ex);
+            throw new TokenException("解析token失败。");
+        }
     }
 
-    private static void secretKeyLegal(String secretKey) throws SecretKeyLengthException {
+    private static void secretKeyLegal(String secretKey) {
         if(secretKey.length()!=16){
             throw new IllegalArgumentException("密钥必须是16位的字符串。");
         }

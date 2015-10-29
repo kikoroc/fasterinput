@@ -1,5 +1,6 @@
 package net.haoxf.fasterinput.controller;
 
+import net.haoxf.fasterinput.exceptions.TokenException;
 import net.haoxf.fasterinput.model.HttpRet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 15-10-18
  */
 @RestController
-public class GlobalController {
+public class GlobalController extends BaseController{
 
     @RequestMapping("/api/account/add")
     public HttpRet index(){
@@ -20,7 +21,7 @@ public class GlobalController {
     }
 
     @RequestMapping("/test")
-    public HttpRet test(){
-        return new HttpRet(200, "test", null);
+    public HttpRet test() throws TokenException {
+        throw new TokenException("test error");
     }
 }

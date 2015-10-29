@@ -5,12 +5,12 @@ package net.haoxf.fasterinput.exceptions;
  * kikoroc@gmail.com | https://github.com/kikoroc
  * 15-10-25
  */
-public class TokenIllegalException extends Exception {
+public class TokenException extends Exception {
 
-    public TokenIllegalException() {
+    public TokenException() {
     }
 
-    public TokenIllegalException(String message) {
+    public TokenException(String message) {
         super(message);
     }
 }

@@ -1,7 +1,5 @@
 package net.haoxf.fasterinput.model;
 
-import com.google.gson.Gson;
-
 /**
  * wangpeng @ fasterinput
  * kikoroc@gmail.com | https://github.com/kikoroc
@@ -11,6 +9,9 @@ public class HttpRet {
     private int code;
     private String msg;
     private Object data;
+
+    public HttpRet() {
+    }
 
     public HttpRet(int code, String msg, Object data) {
         this.code = code;
