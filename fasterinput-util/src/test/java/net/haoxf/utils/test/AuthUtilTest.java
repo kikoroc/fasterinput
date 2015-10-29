@@ -2,7 +2,7 @@ package net.haoxf.utils.test;
 
 
 import junit.framework.TestCase;
-import net.haoxf.utils.AuthUtil;
+import net.haoxf.fasterinput.utils.AuthUtil;
 import org.junit.Assert;
 
 import java.util.Date;

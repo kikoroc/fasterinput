@@ -1,4 +1,6 @@
-package net.haoxf.model;
+package net.haoxf.fasterinput.model;
+
+import com.google.gson.Gson;
 
 /**
  * wangpeng @ fasterinput

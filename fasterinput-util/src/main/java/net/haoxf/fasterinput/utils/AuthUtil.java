@@ -1,7 +1,7 @@
-package net.haoxf.utils;
+package net.haoxf.fasterinput.utils;
 
-import net.haoxf.consts.Consts;
-import net.haoxf.exceptions.SecretKeyLengthException;
+import net.haoxf.fasterinput.consts.Consts;
+import net.haoxf.fasterinput.exceptions.SecretKeyLengthException;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;

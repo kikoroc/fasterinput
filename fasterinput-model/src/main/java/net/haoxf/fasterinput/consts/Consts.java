@@ -1,4 +1,4 @@
-package net.haoxf.consts;
+package net.haoxf.fasterinput.consts;
 
 /**
  * wangpeng @ fasterinput

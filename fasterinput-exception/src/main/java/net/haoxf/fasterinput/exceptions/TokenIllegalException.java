@@ -1,4 +1,4 @@
-package net.haoxf.exceptions;
+package net.haoxf.fasterinput.exceptions;
 
 /**
  * wangpeng @ fasterinput
