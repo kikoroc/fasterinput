@@ -1,0 +1,151 @@
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    overflow:auto;
+    font-size: 54px;
+}
+body{
+    font: 12px/1.5 tahoma,arial,'Hiragino Sans GB','微软雅黑',\5b8b\4f53,sans-serif;
+    margin: 0;
+    padding: 0;
+}
+p{
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+a,button{text-decoration:none;outline: none}
+.clear{
+    clear:both;
+}
+button{
+    cursor: pointer;
+    border: none;
+}
+.topwrapper{
+    position: relative;
+    width: 100%;
+    height: 740px;
+    background-color: #5e9929;
+}
+.topwrapper .maincont{
+    position: relative;
+    width: 960px;
+    height: 100%;
+    margin: 0 auto;
+    background: url("../img/index/phone.png") no-repeat;
+    background-position: 20px 168px;
+}
+.topwrapper .maincont .swipe{
+    position: relative;
+    width: 283px;
+    height: 465px;
+    float: left;
+    margin: 276px auto auto 88px;
+}
+.swipe {
+    overflow: hidden;
+    visibility: hidden;
+    position: relative;
+}
+.swipe-wrap {
+    overflow: hidden;
+    position: relative;
+}
+.swipe-wrap > div {
+    float:left;
+    width:100%;
+    position: relative;
+}
+#snap1{
+    height: 465px;
+    background: url("../img/index/snap1.png") no-repeat;
+    background-size: 100%;
+}
+#snap2{
+    height: 465px;
+    background: url("../img/index/snap2.png") no-repeat;
+    background-size: 100%;
+}
+#snap3{
+    height: 465px;
+    background: url("../img/index/snap3.png") no-repeat;
+    background-size: 100%;
+}
+#snap4{
+    height: 465px;
+    background: url("../img/index/snap4.png") no-repeat;
+    background-size: 100%;
+}
+#snap5{
+    height: 465px;
+    background: url("../img/index/snap5.png") no-repeat;
+    background-size: 100%;
+}
+.topwrapper .maincont .info{
+    position: relative;
+    float: right;
+    height: 430px;
+    width: 560px;
+    margin-top: 60px;
+    padding-top: 240px;
+    background: url("../img/logo.png") no-repeat;
+    background-position: 30px 0;
+    background-size: 100px 100px;
+}
+.topwrapper .maincont .info h1{
+    margin: 0 0 20px 50px;
+    font-size: 2em;
+    color: #ffffff;
+    text-shadow: 5px 5px 5px grey;
+}
+.topwrapper .maincont .info p{
+    font-size: 1.2em;
+    margin-left: 50px;
+    color: #ffffff;
+    text-shadow: 2px 2px 2px grey;
+}
+
+.topwrapper .maincont .info .download{
+    position: relative;
+    width: 370px;
+    height: 190px;
+    margin-top: 50px;
+    padding-top: 20px;
+    margin-left: 50px;
+}
+.topwrapper .maincont .info .download .android,.topwrapper .maincont .info .download .ios{
+    position: relative;
+    float: left;
+    width: 180px;
+    height: 60px;
+    margin: 8px;
+}
+.topwrapper .maincont .info .download .android{
+    background: url("../img/index/donwload_android.png") no-repeat;
+    background-size: 100%;
+}
+.topwrapper .maincont .info .download .android:active{
+    background-position: 2px 2px;
+}
+.topwrapper .maincont .info .download .ios{
+    background: url("../img/index/download_ios.png") no-repeat;
+    background-size: 100%;
+}
+.topwrapper .maincont .info .download .qrcode{
+    position: relative;
+    float: right;
+    width: 136px;
+    height: 136px;
+    margin: -144px 0 35px auto;
+    background: url("../img/index/qrcode.png") no-repeat;
+    background-size: 100%;
+    cursor: inherit;
+}
+.copyright{
+    width: 500px;
+    height: 60px;
+    margin: 10px auto;
+    text-align: center;
+    padding-top: 40px;
+    color: #c8cac7;
+}
