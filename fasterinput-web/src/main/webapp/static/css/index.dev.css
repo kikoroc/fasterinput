@@ -27,6 +27,9 @@ button{
     height: 740px;
     background-color: #5e9929;
 }
+.topwrapper .m_info{
+    display: none;
+}
 .topwrapper .maincont{
     position: relative;
     width: 960px;
@@ -148,4 +151,123 @@ button{
     text-align: center;
     padding-top: 40px;
     color: #c8cac7;
+}
+.copyright .m_download{
+    display: none;
+}
+@media (min-width:480px) and (max-width: 768px) {
+    .topwrapper .maincont .info{
+        display: none;
+    }
+    .topwrapper{
+        margin: 0 auto;
+        width: 480px;
+        height: 680px;
+        background: url("../img/logo.png") no-repeat;
+        background-position: 215px 10px;
+        background-size: 50px 50px;
+    }
+    .topwrapper .m_info{
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 60px;
+    }
+    .topwrapper .m_info h1{
+        font-size: 1.5em;
+        color: #000000;
+        text-shadow: 5px 5px 5px grey;
+    }
+    .topwrapper .m_info p{
+        font-size: 1.2em;
+        color: #000;
+        text-shadow: 2px 2px 2px grey;
+    }
+    .topwrapper .maincont{
+        width: 480px;
+        background: url("../img/index/phone.png") no-repeat;
+        background-size: 400px auto;
+        background-position: 40px 0px;
+    }
+    .topwrapper .maincont .swipe{
+        height: 480px;
+        margin: 100px auto auto 102px;
+    }
+    #snap1,#snap2,#snap3,#snap4,#snap5{
+        height: 345px;
+    }
+    .copyright{
+        width: 100%;
+    }
+    .copyright .m_download{
+        display: block;
+        margin: 0 auto;
+        width: 140px;
+        height: 40px;
+        margin-bottom: 10px;
+        border-radius: 20px;
+        color: #fff;
+        font-size: 1.3em;
+        background-color: #70a230;
+    }
+}
+@media (max-width:480px){
+    .topwrapper .maincont .info{
+        display: none;
+    }
+    .topwrapper{
+        margin: 0 auto;
+        width: 340px;
+        height: 530px;
+        background: url("../img/logo.png") no-repeat;
+        background-position: 150px 10px;
+        background-size: 40px 40px;
+    }
+    .topwrapper .m_info{
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 50px;
+    }
+    .topwrapper .m_info h1{
+        font-size: 1.3em;
+        color: #000000;
+        text-shadow: 5px 5px 5px grey;
+    }
+    .topwrapper .m_info p{
+        font-size: 1em;
+        color: #000;
+        text-shadow: 2px 2px 2px grey;
+    }
+    .topwrapper .maincont{
+        width: 320px;
+        background: url("../img/index/phone.png") no-repeat;
+        background-size: 300px auto;
+        background-position: 10px 0;
+    }
+    .topwrapper .maincont .swipe{
+        width: 200px;
+        height: auto;
+        margin: 90px auto auto 60px;
+    }
+    #snap1,#snap2,#snap3,#snap4,#snap5{
+        height: 345px;
+    }
+    .copyright{
+        padding-top: 20px;
+        width: 100%;
+    }
+    .copyright .m_download{
+        display: block;
+        margin: 0 auto;
+        width: 120px;
+        height: 35px;
+        margin-bottom: 10px;
+        border-radius: 20px;
+        color: #fff;
+        font-size: 1.3em;
+        background-color: #70a230;
+    }
 }

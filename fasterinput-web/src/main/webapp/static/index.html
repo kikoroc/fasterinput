@@ -3,11 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>快捷输入</title>
+    <meta name="keywords" content="快捷输入，您的沟通伴侣">
+    <meta name="description" content="颜文字、短语、密码、刷屏、剪贴板一步到位，沟通快人N步！">
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" name="viewport">
     <link rel="shortcut icon" href="./img/fasterinput.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./css/index.dev.css?v=1" />
+    <link rel="stylesheet" href="./css/index.dev.css?v=5" />
 </head>
 <body>
 <div class="topwrapper">
+    <div class="m_info">
+        <h1>快捷输入，您的沟通伴侣</h1>
+        <p>颜文字、短语、密码、刷屏、剪贴板一步到位，沟通快人N步！</p>
+    </div>
     <div class="maincont">
         <div id="slider" class="swipe">
             <div class="swipe-wrap">
@@ -30,6 +37,7 @@
     </div>
 </div>
 <div class="copyright">
+    <button class="m_download" id="m_download">立即下载</button>
     &copy;2015 快捷输入 All right reserved.
 </div>
 <script src="js/swipe.js" type="text/javascript"></script>
@@ -44,6 +52,30 @@
         callback: function(index, elem) {},
         transitionEnd: function(index, elem) {}
     });
+    (function(){
+        var url = "http://haoxf.net/fasterinput/fasterinput-share-1.0.12.apk?_="+Math.random();
+        var weixin = false;
+        document.addEventListener("WeixinJSBridgeReady",function o(){
+            weixin = true;
+        }, false);
+        document.getElementById("android").addEventListener("click", function(evt){
+            window.location.href = url;
+        }, false);
+        var ua = window.navigator.userAgent,
+            ios = /(iPhone|iPod|iOS|iPad)/i.test(ua);
+        if(ios){
+            document.getElementById("m_download").innerText = "敬请期待";
+            document.getElementById("m_download").style.backgroundColor = "grey";
+        }else{
+            document.getElementById("m_download").addEventListener("click", function (evt) {
+                if(weixin){
+                    alert("微信不支持app下载，请在浏览器中打开网页下载。");
+                }else{
+                    window.location.href = url;
+                }
+            }, false);
+        }
+    })();
 </script>
 </body>
 </html>
