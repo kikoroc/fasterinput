@@ -186,16 +186,17 @@ button{
     }
     .topwrapper .maincont{
         width: 480px;
+        height: 565px;
         background: url("../img/index/phone.png") no-repeat;
         background-size: 400px auto;
         background-position: 40px 0px;
     }
     .topwrapper .maincont .swipe{
-        height: 480px;
+        height: 465px;
         margin: 100px auto auto 102px;
     }
     #snap1,#snap2,#snap3,#snap4,#snap5{
-        height: 345px;
+        height: 465px;
     }
     .copyright{
         width: 100%;
@@ -243,17 +244,18 @@ button{
     }
     .topwrapper .maincont{
         width: 320px;
+        height: 420px;
         background: url("../img/index/phone.png") no-repeat;
         background-size: 300px auto;
         background-position: 10px 0;
     }
     .topwrapper .maincont .swipe{
         width: 200px;
-        height: auto;
+        height: 329px;
         margin: 90px auto auto 60px;
     }
     #snap1,#snap2,#snap3,#snap4,#snap5{
-        height: 345px;
+        height: 329px;
     }
     .copyright{
         padding-top: 20px;
