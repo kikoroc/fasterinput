@@ -1,0 +1,36 @@
+package net.haoxf.fasterinput.service;
+
+import net.haoxf.fasterinput.dao.ShareDao;
+import net.haoxf.fasterinput.model.Share;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+/**
+ * wangpeng @ fasterinput
+ * kikoroc@gmail.com | https://github.com/kikoroc
+ * 15-11-4
+ */
+@Service
+public class ShareService {
+
+    @Autowired
+    private ShareDao shareDao;
+
+    @Transactional(propagation = Propagation.NEVER)
+    public void addShare(Share share){
+        shareDao.addShare(share);
+    }
+
+    @Transactional(readOnly = true)
+    public Share getById(long id){
+        return shareDao.getById(id);
+    }
+
+    @Transactional(readOnly = true)
+    public Share getByMd5(String md5){
+        return shareDao.getByMd5(md5);
+    }
+}
