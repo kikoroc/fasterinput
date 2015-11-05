@@ -1,6 +1,6 @@
-package net.haoxf.fasterinput;
+package net.haoxf.fasterinput.web;
 
-import net.haoxf.fasterinput.interceptors.TokenInterceptor;
+import net.haoxf.fasterinput.web.interceptors.TokenInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

@@ -4,7 +4,6 @@ import net.haoxf.fasterinput.dao.ShareDao;
 import net.haoxf.fasterinput.model.Share;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 

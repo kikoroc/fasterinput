@@ -13,6 +13,9 @@ public class Share {
     private Date shareTime;
     private String content;
 
+    public Share() {
+    }
+
     public Share(long id, String md5, Date shareTime, String content) {
         this.id = id;
         this.md5 = md5;

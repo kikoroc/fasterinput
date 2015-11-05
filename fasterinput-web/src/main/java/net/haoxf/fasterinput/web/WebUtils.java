@@ -1,4 +1,4 @@
-package net.haoxf.fasterinput;
+package net.haoxf.fasterinput.web;
 
 import com.google.gson.Gson;
 import net.haoxf.fasterinput.model.HttpRet;

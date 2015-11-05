@@ -1,6 +1,6 @@
-package net.haoxf.fasterinput.interceptors;
+package net.haoxf.fasterinput.web.interceptors;
 
-import net.haoxf.fasterinput.WebUtils;
+import net.haoxf.fasterinput.web.WebUtils;
 import net.haoxf.fasterinput.consts.Consts.Code;
 import net.haoxf.fasterinput.model.HttpRet;
 import net.haoxf.fasterinput.utils.AuthUtil;

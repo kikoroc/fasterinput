@@ -1,6 +1,6 @@
-package net.haoxf.fasterinput.controller;
+package net.haoxf.fasterinput.web.controller;
 
-import net.haoxf.fasterinput.WebUtils;
+import net.haoxf.fasterinput.web.WebUtils;
 import net.haoxf.fasterinput.consts.Consts.Code;
 import net.haoxf.fasterinput.exceptions.TokenException;
 import net.haoxf.fasterinput.model.HttpRet;
