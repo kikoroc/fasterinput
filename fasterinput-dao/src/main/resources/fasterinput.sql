@@ -11,4 +11,4 @@ create table if not exists `tb_share` (
   `content` text not null default '' comment '分享内容',
   primary key (`id`),
   unique key `unq_share_md5` (`md5`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

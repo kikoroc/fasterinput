@@ -18,9 +18,11 @@ public class ShareService {
     @Autowired
     private ShareDao shareDao;
 
-    @Transactional(propagation = Propagation.NEVER)
-    public void addShare(Share share){
-        shareDao.addShare(share);
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void addShare(Share[] shares){
+        for(Share share : shares){
+            shareDao.addShare(share);
+        }
     }
 
     @Transactional(readOnly = true)

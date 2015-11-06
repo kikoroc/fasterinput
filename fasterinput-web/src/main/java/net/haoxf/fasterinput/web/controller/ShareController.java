@@ -34,7 +34,7 @@ public class ShareController extends BaseController {
             return new HttpRet(Code.SUCCESS.getCode(), "success", exist.getId());
         }else{
             Share share = new Share(md5, new Date(), content);
-            shareService.addShare(share);
+            shareService.addShare(new Share[]{share});
             return new HttpRet(Code.SUCCESS.getCode(), "success", share.getId());
         }
     }
