@@ -1,11 +1,14 @@
 package net.haoxf.fasterinput.dao;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 
 import javax.sql.DataSource;
 import java.io.IOException;
@@ -46,10 +49,6 @@ public class DataSourceConfiguration {
 
     @Bean
     public JdbcTemplate jdbcTemplate(DataSource dataSource) throws IOException {
-        JdbcTemplate jdbcTemplate = new JdbcTemplate();
-        jdbcTemplate.setLazyInit(false);
-        jdbcTemplate.setDataSource(dataSource);
-
-        return jdbcTemplate;
+        return new JdbcTemplate(dataSource, false);
     }
 }
