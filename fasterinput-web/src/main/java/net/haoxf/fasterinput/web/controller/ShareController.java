@@ -6,6 +6,7 @@ import net.haoxf.fasterinput.model.Share;
 import net.haoxf.fasterinput.service.ShareService;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +22,7 @@ import java.util.Date;
 public class ShareController extends BaseController {
 
     @Autowired
+    @Qualifier("shareService")
     private ShareService shareService;
 
     @RequestMapping(value = "/api/share", method = RequestMethod.POST)

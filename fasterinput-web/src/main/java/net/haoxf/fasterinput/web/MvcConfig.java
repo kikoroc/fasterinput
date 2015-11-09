@@ -1,21 +1,21 @@
-package net.haoxf.fasterinput.web.config;
+package net.haoxf.fasterinput.web;
 
 import net.haoxf.fasterinput.web.interceptors.TokenInterceptor;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-/**
- * wangpeng @ fasterinput
- * kikoroc@gmail.com | https://github.com/kikoroc
- * 15-11-5
- */
+import javax.servlet.Filter;
 
+/**
+ * Created by Administrator on 2015/11/9 0009.
+ */
 @Configuration
-@EnableWebMvc
-public class DispatchServletConfig extends WebMvcConfigurerAdapter {
+public class MvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -28,6 +28,14 @@ public class DispatchServletConfig extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/resources/static/**")
                 .addResourceLocations("/resources/static/")
                 .setCachePeriod(7*24*3600);
+    }
+
+    @Bean
+    public Filter applicationContextFilter(ApplicationContext context){
+        CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter();
+        encodingFilter.setEncoding("UTF-8");
+        encodingFilter.setForceEncoding(true);
+        return encodingFilter;
     }
 
 }

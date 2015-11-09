@@ -14,7 +14,7 @@ import javax.sql.DataSource;
  */
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan("net.haoxf.fasterinput.service")
+@ComponentScan
 @EnableTransactionManagement
 public class ServiceConfiguration {
 

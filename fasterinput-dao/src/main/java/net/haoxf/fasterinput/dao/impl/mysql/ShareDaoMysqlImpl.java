@@ -22,7 +22,7 @@ import java.sql.SQLException;
  * kikoroc@gmail.com | https://github.com/kikoroc
  * 15-11-4
  */
-@Repository
+@Repository("shareDaoMysqlImpl")
 public class ShareDaoMysqlImpl implements ShareDao {
 
     @Autowired

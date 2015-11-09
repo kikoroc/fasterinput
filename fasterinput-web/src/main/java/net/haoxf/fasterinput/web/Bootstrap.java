@@ -2,21 +2,26 @@ package net.haoxf.fasterinput.web;
 
 import net.haoxf.fasterinput.dao.DataSourceConfiguration;
 import net.haoxf.fasterinput.service.ServiceConfiguration;
-import net.haoxf.fasterinput.web.config.DispatchServletConfig;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
 
 /**
  * wangpeng @ fasterinput
  * kikoroc@gmail.com | https://github.com/kikoroc
  * 15-11-8
  */
-@Configuration
-@EnableAutoConfiguration
-@ComponentScan("net.haoxf.fasterinput.web")
-public class Bootstrap {
+@SpringBootApplication
+public class Bootstrap extends SpringBootServletInitializer  {
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application){
+        return application.sources(
+                DataSourceConfiguration.class,
+                ServiceConfiguration.class,
+                Bootstrap.class);
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(new Object[]{

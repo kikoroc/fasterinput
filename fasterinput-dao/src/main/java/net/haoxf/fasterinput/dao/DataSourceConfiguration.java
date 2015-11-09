@@ -18,7 +18,7 @@ import java.util.Properties;
  */
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan("net.haoxf.fasterinput.dao")
+@ComponentScan
 public class DataSourceConfiguration {
 
     @Bean

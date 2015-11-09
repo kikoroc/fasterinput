@@ -25,6 +25,7 @@ public class ShareDaoTest {
     @Autowired
     private ShareDao shareDaoMysqlImpl;
     private Gson gson = new Gson();
+    long id = 0l;
 
     @Test
     public void addShare(){
@@ -35,11 +36,12 @@ public class ShareDaoTest {
         share.setShareTime(new Date());
 
         shareDaoMysqlImpl.addShare(share);
+        id = share.getId();
     }
 
     @Test
     public void getById(){
-        Share share = shareDaoMysqlImpl.getById(1l);
+        Share share = shareDaoMysqlImpl.getById(id);
         System.out.println(gson.toJson(share));
     }
 
@@ -48,8 +50,8 @@ public class ShareDaoTest {
         Share share = shareDaoMysqlImpl.getByMd5("6475530805e616374c81e30616e006aa");
         System.out.println(gson.toJson(share));
 
-        Share share2 = shareDaoMysqlImpl.getByMd5("6475530805e616374c81e30616e006ab");
-        System.out.println(gson.toJson(share2));
+        /*Share share2 = shareDaoMysqlImpl.getByMd5("6475530805e616374c81e30616e006ab");
+        System.out.println(gson.toJson(share2));*/
     }
 
 }

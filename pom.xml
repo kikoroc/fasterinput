@@ -4,6 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.2.7.RELEASE</version>
+    </parent>
+
     <groupId>net.haoxf</groupId>
     <artifactId>fasterinput</artifactId>
     <packaging>pom</packaging>
@@ -18,9 +24,9 @@
     </modules>
 
     <properties>
-        <java.version>1.7</java.version>
-        <build.sourceEncoding>UTF-8</build.sourceEncoding>
-        <!--<spring.version>4.2.2.RELEASE</spring.version>-->
+        <java.version>1.6</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--<jetty.version>7.4.0.RC0</jetty.version>-->
         <spring.boot.version>1.2.7.RELEASE</spring.boot.version>
     </properties>
 
@@ -40,6 +46,17 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
                 <version>${spring.boot.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-tomcat</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-jetty</artifactId>
+                <version>${spring.boot.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -47,7 +64,6 @@
                 <version>${spring.boot.version}</version>
                 <scope>test</scope>
             </dependency>
-
             <dependency>
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
@@ -85,4 +101,16 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring.boot.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>
