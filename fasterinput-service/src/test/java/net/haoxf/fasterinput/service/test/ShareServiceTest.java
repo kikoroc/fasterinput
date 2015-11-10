@@ -1,14 +1,12 @@
 package net.haoxf.fasterinput.service.test;
 
-import net.haoxf.fasterinput.dao.DataSourceConfiguration;
 import net.haoxf.fasterinput.model.Share;
-import net.haoxf.fasterinput.service.ServiceConfiguration;
 import net.haoxf.fasterinput.service.ShareService;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Date;
@@ -17,7 +15,7 @@ import java.util.Date;
  * Created by Administrator on 2015/11/6 0006.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {ServiceConfiguration.class, DataSourceConfiguration.class})
+@ContextConfiguration(locations = {"classpath:fasterinput-service.xml"})
 public class ShareServiceTest {
 
     @Autowired

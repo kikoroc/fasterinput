@@ -1,14 +1,13 @@
 package net.haoxf.fasterinput.dao.test;
 
 import com.google.gson.Gson;
-import net.haoxf.fasterinput.dao.DataSourceConfiguration;
 import net.haoxf.fasterinput.dao.ShareDao;
 import net.haoxf.fasterinput.model.Share;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Date;
@@ -19,7 +18,7 @@ import java.util.Date;
  * 15-11-5
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {DataSourceConfiguration.class})
+@ContextConfiguration(locations = {"classpath:fasterinput-dao.xml"})
 public class ShareDaoTest {
 
     @Autowired

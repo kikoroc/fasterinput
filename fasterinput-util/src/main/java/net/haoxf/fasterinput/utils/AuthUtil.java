@@ -3,9 +3,9 @@ package net.haoxf.fasterinput.utils;
 import net.haoxf.fasterinput.consts.Consts;
 import net.haoxf.fasterinput.exceptions.TokenException;
 import org.apache.commons.codec.binary.Hex;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -20,7 +20,7 @@ import java.util.Random;
  * 15-10-25
  */
 public class AuthUtil {
-    protected static Log log = LogFactory.getLog(AuthUtil.class);
+    protected static Logger logger = LoggerFactory.getLogger(AuthUtil.class);
     private static final String KEY_ALGORITHM = "AES";
     /**
      * @see //blog.poxiao.me/p/advanced-encryption-standard-and-block-cipher-mode/
@@ -56,7 +56,7 @@ public class AuthUtil {
             byte[] retBytes = cipher.doFinal(macData.getBytes());
             return new String(new Hex().encode(retBytes));
         }catch(Exception ex){
-            log.error("生成token出错。", ex);
+            logger.error("生成token出错。", ex);
             throw new TokenException("生成token失败。");
         }
     }
@@ -72,7 +72,7 @@ public class AuthUtil {
             String ret = new String(retBytes);
             return new AuthRet(Long.valueOf(ret.split("\\|")[0]), Long.valueOf(ret.split("\\|")[1]));
         }catch(Exception ex){
-            log.error("解析token失败。", ex);
+            logger.error("解析token失败。", ex);
             throw new TokenException("解析token失败。");
         }
     }
