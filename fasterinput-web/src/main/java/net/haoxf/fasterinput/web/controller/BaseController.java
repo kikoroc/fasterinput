@@ -1,9 +1,9 @@
 package net.haoxf.fasterinput.web.controller;
 
-import net.haoxf.fasterinput.web.WebUtils;
 import net.haoxf.fasterinput.consts.Consts.Code;
 import net.haoxf.fasterinput.exceptions.TokenException;
 import net.haoxf.fasterinput.model.HttpRet;
+import net.haoxf.fasterinput.web.WebUtils;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.NoHandlerFoundException;
 

@@ -1,9 +1,9 @@
 package net.haoxf.fasterinput.web.interceptors;
 
-import net.haoxf.fasterinput.web.WebUtils;
 import net.haoxf.fasterinput.consts.Consts.Code;
 import net.haoxf.fasterinput.model.HttpRet;
 import net.haoxf.fasterinput.utils.AuthUtil;
+import net.haoxf.fasterinput.web.WebUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.util.StringUtils;

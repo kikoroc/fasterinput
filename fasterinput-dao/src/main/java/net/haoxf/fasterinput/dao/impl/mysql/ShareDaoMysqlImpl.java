@@ -4,7 +4,6 @@ import net.haoxf.fasterinput.dao.SQL;
 import net.haoxf.fasterinput.dao.ShareDao;
 import net.haoxf.fasterinput.model.Share;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;

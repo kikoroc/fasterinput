@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd ">
+
+
+    <context:component-scan base-package="net.haoxf.fasterinput.dao" />
+
+    <context:property-placeholder location="classpath:druid.properties" />
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
+            destroy-method="close">
+        <property name="url" value="${datasource.url}" />
+        <property name="username" value="${datasource.username}" />
+        <property name="password" value="${datasource.password}" />
+
+        <property name="initialSize" value="${datasource.initialSize}" />
+        <property name="minIdle" value="${datasource.minIdle}" />
+        <property name="maxActive" value="${datasource.maxActive}" />
+        <property name="maxWait" value="${datasource.maxWait}" />
+        <property name="timeBetweenEvictionRunsMillis" value="${datasource.timeBetweenEvictionRunsMillis}" />
+        <property name="minEvictableIdleTimeMillis" value="${datasource.minEvictableIdleTimeMillis}" />
+
+        <property name="validationQuery" value="${datasource.validationQuery}" />
+        <property name="testWhileIdle" value="${datasource.testWhileIdle}" />
+        <property name="testOnBorrow" value="${datasource.testOnBorrow}" />
+        <property name="testOnReturn" value="${datasource.testOnReturn}" />
+
+        <property name="poolPreparedStatements" value="${datasource.poolPreparedStatements}" />
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="${datasource.maxPoolPreparedStatementPerConnectionSize}" />
+        <property name="filters" value="${datasource.filters}" />
+    </bean>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource">
+            <ref bean="dataSource" />
+        </property>
+    </bean>
+</beans>
