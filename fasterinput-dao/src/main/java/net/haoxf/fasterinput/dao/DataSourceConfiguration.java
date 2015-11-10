@@ -1,14 +1,13 @@
 package net.haoxf.fasterinput.dao;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 
 import javax.sql.DataSource;
 import java.io.IOException;
@@ -20,12 +19,11 @@ import java.util.Properties;
  * Created by Administrator on 2015/11/6 0006.
  */
 @Configuration
-@EnableAutoConfiguration
-@ComponentScan
+@ComponentScan("net.haoxf.fasterinput.dao")
 public class DataSourceConfiguration {
 
     @Bean
-    public DataSource dataSource() {
+    public DataSource dataSource() throws Exception {
         Properties props = new Properties();
         URL url = this.getClass().getResource("/druid.properties");
         InputStream is = null;

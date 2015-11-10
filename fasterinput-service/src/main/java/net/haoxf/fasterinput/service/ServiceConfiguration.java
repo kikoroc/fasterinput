@@ -13,8 +13,7 @@ import javax.sql.DataSource;
  * Created by Administrator on 2015/11/6 0006.
  */
 @Configuration
-@EnableAutoConfiguration
-@ComponentScan
+@ComponentScan("net.haoxf.fasterinput.service")
 @EnableTransactionManagement
 public class ServiceConfiguration {
 
