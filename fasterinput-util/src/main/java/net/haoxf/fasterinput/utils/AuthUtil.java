@@ -108,10 +108,6 @@ public class AuthUtil {
             this.timestamp = timestamp;
         }
 
-        @Override
-        public String toString(){
-            return "uid:"+getUid()+",timestamp:"+getTimestamp();
-        }
     }
 
 }
