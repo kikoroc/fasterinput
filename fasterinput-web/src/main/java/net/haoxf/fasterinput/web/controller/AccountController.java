@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by Administrator on 2015/11/9 0009.
  */
 @RestController
-public class AccountController extends BaseController {
+public class AccountController {
 
     @RequestMapping("/api/account/add")
     public HttpRet index(){

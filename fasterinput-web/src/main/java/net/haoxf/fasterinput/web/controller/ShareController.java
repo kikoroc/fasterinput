@@ -19,7 +19,7 @@ import java.util.Date;
  * 15-11-4
  */
 @RestController
-public class ShareController extends BaseController {
+public class ShareController {
 
     @Autowired
     @Qualifier("shareService")

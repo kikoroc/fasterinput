@@ -4,6 +4,7 @@ import net.haoxf.fasterinput.consts.Consts.Code;
 import net.haoxf.fasterinput.exceptions.TokenException;
 import net.haoxf.fasterinput.model.HttpRet;
 import net.haoxf.fasterinput.web.WebUtils;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
@@ -15,6 +16,7 @@ import java.io.IOException;
  * kikoroc@gmail.com | https://github.com/kikoroc
  * 15-10-29
  */
+@ControllerAdvice
 public class BaseController {
 
     @ExceptionHandler

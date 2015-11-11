@@ -48,7 +48,12 @@
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <configuration>
-                    <scanIntervalSeconds>3</scanIntervalSeconds>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <reload>manual</reload>
+                    <webApp>
+                        <contextPath>/</contextPath>
+                        <defaultsDescriptor>src/main/resources/webdefault.xml</defaultsDescriptor>
+                    </webApp>
                 </configuration>
             </plugin>
         </plugins>

@@ -40,6 +40,7 @@ public class ShareDaoMysqlImpl implements ShareDao {
                 return ps;
             }
         }, key);
+
         share.setId(key.getKey().longValue());
     }
 

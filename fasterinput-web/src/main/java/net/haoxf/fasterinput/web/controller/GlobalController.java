@@ -11,11 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
  * 15-10-18
  */
 @RestController
-public class GlobalController extends BaseController{
+public class GlobalController {
 
     @RequestMapping("/test")
     public HttpRet test() throws TokenException {
         throw new TokenException("test error");
+    }
+
+    @RequestMapping("/test2")
+    public HttpRet test2(){
+        return new HttpRet(200, "");
     }
 
 }
