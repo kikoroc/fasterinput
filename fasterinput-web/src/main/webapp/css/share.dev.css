@@ -1,0 +1,59 @@
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    overflow:hidden;
+    font-size: 54px;
+}
+body{
+    font: 12px/1.5 tahoma,arial,'Hiragino Sans GB','微软雅黑',\5b8b\4f53,sans-serif;
+    margin: 0;
+    padding: 0;
+}
+p{
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+a,button{text-decoration:none;outline: none}
+.clear{
+    clear:both;
+}
+button{
+    cursor: pointer;
+    border: none;
+}
+.banner{
+    width: 100%;
+    min-width: 340px;
+    background: url("../img/logo.png") no-repeat;
+    background-size: 40px 40px;
+    background-position: 10px 10px;
+    text-indent: 50px;
+    padding: 10px;
+    background-color: #dadada;
+}
+.banner .title{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.banner button{
+    position: absolute;
+    font-size: 1.2em;
+    font-weight: bold;
+    width: 100px;
+    height: 30px;
+    background-color: #5e9929;
+    top: 15px;
+    right: 10px;
+}
+.content{
+    width: 100%;
+}
+.content pre{
+    padding: 15px;
+    margin: 0 auto;
+}
+.copyright{
+    width: 100%;
+    text-align: center;
+    color: #c8cac7;
+}
