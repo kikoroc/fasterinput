@@ -9,6 +9,46 @@ public class Consts {
     //token生成和解析使用的16位密钥
     public static final String SECRET_KEY = "testtesttesttest";
 
+    public enum ThirdAccount{
+        QQ(1, "", ""),
+        WECHAT(2, "", ""),
+        WEIBO(3, "", "");
+
+        private int accountCode;
+        private String appId;
+        private String appKey;
+
+        ThirdAccount(int accountCode, String appId, String appKey) {
+            this.accountCode = accountCode;
+            this.appId = appId;
+            this.appKey = appKey;
+        }
+
+        public int getAccountCode() {
+            return accountCode;
+        }
+
+        public void setAccountCode(int accountCode) {
+            this.accountCode = accountCode;
+        }
+
+        public String getAppId() {
+            return appId;
+        }
+
+        public void setAppId(String appId) {
+            this.appId = appId;
+        }
+
+        public String getAppKey() {
+            return appKey;
+        }
+
+        public void setAppKey(String appKey) {
+            this.appKey = appKey;
+        }
+    }
+
     //业务处理状态码
     public enum Code{
         SUCCESS(200, "success."),
