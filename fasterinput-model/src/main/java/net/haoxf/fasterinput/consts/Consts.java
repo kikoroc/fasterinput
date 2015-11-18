@@ -1,5 +1,7 @@
 package net.haoxf.fasterinput.consts;
 
+import java.util.HashSet;
+
 /**
  * wangpeng @ fasterinput
  * kikoroc@gmail.com | https://github.com/kikoroc
@@ -10,18 +12,28 @@ public class Consts {
     public static final String SECRET_KEY = "testtesttesttest";
 
     public enum ThirdAccount{
-        QQ(1, "", ""),
-        WECHAT(2, "", ""),
-        WEIBO(3, "", "");
+        QQ(1, "", "", ""),
+        WECHAT(2, "", "", ""),
+        WEIBO(3, "", "", "");
 
         private int accountCode;
         private String appId;
         private String appKey;
+        private String baseUrl;
+        public static HashSet<Integer> values = new HashSet<>();
 
-        ThirdAccount(int accountCode, String appId, String appKey) {
+        ThirdAccount(int accountCode, String appId, String appKey, String baseUrl) {
             this.accountCode = accountCode;
             this.appId = appId;
             this.appKey = appKey;
+            this.baseUrl = baseUrl;
+        }
+
+        static{
+            values = new HashSet<>();
+            for(ThirdAccount ta:ThirdAccount.values()){
+                values.add(ta.getAccountCode());
+            }
         }
 
         public int getAccountCode() {
@@ -46,6 +58,14 @@ public class Consts {
 
         public void setAppKey(String appKey) {
             this.appKey = appKey;
+        }
+
+        public String getBaseUrl() {
+            return baseUrl;
+        }
+
+        public void setBaseUrl(String baseUrl) {
+            this.baseUrl = baseUrl;
         }
     }
 
@@ -79,5 +99,9 @@ public class Consts {
         public void setDescription(String description) {
             this.description = description;
         }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(ThirdAccount.values());
     }
 }
