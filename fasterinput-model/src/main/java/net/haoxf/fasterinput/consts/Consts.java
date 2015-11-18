@@ -12,7 +12,7 @@ public class Consts {
     public static final String SECRET_KEY = "testtesttesttest";
 
     public enum ThirdAccount{
-        QQ(1, "", "", ""),
+        QQ(1, "", "", "https://graph.qq.com/"),
         WECHAT(2, "", "", ""),
         WEIBO(3, "", "", "");
 
@@ -20,7 +20,7 @@ public class Consts {
         private String appId;
         private String appKey;
         private String baseUrl;
-        public static HashSet<Integer> values = new HashSet<>();
+        public static HashSet<Integer> values = new HashSet<Integer>();
 
         ThirdAccount(int accountCode, String appId, String appKey, String baseUrl) {
             this.accountCode = accountCode;
@@ -30,7 +30,7 @@ public class Consts {
         }
 
         static{
-            values = new HashSet<>();
+            values = new HashSet<Integer>();
             for(ThirdAccount ta:ThirdAccount.values()){
                 values.add(ta.getAccountCode());
             }

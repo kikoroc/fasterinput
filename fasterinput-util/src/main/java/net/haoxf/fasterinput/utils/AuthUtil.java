@@ -73,7 +73,7 @@ public class AuthUtil {
             return new AuthRet(Long.valueOf(ret.split("\\|")[0]), Long.valueOf(ret.split("\\|")[1]));
         }catch(Exception ex){
             logger.error("解析token失败。", ex);
-            throw new TokenException("解析token失败。");
+            throw new TokenException(token, "解析token失败。");
         }
     }
 
