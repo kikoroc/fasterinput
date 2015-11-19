@@ -15,6 +15,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
+import java.util.List;
 
 /**
  * wangpeng @ fasterinput
@@ -46,15 +48,25 @@ public class ShareDaoMysqlImpl implements ShareDao {
 
     @Override
     public Share getById(long id) {
-        return jdbcTemplate.queryForObject(SQL.GET_SHARE_BY_ID,
+        List<Share> rets = jdbcTemplate.query(SQL.GET_SHARE_BY_ID,
                 new Object[]{id}, shareRowMapper());
+        if(rets.size()>0){
+            return rets.get(0);
+        }else{
+            return null;
+        }
     }
 
     @Override
     public Share getByMd5(String md5) {
-        return jdbcTemplate.queryForObject(SQL.GET_SHARE_BY_MD5,
+        List<Share> rets = jdbcTemplate.query(SQL.GET_SHARE_BY_MD5,
                 new Object[]{md5},
                 shareRowMapper());
+        if(rets.size()>0){
+            return rets.get(0);
+        }else{
+            return null;
+        }
     }
 
     private RowMapper<Share> shareRowMapper(){
@@ -65,7 +77,7 @@ public class ShareDaoMysqlImpl implements ShareDao {
                 share.setId(rs.getLong("id"));
                 share.setContent(rs.getString("content"));
                 share.setMd5(rs.getString("md5"));
-                share.setShareTime(rs.getDate("shareTime"));
+                share.setShareTime(new Date(rs.getDate("shareTime").getTime()));
 
                 return share;
             }

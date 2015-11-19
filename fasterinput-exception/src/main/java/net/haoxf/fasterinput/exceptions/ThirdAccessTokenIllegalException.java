@@ -1,5 +1,7 @@
 package net.haoxf.fasterinput.exceptions;
 
+import net.haoxf.fasterinput.consts.Consts;
+
 /**
  * wangpeng @ fasterinput
  * kikoroc@gmail.com | https://github.com/kikoroc
@@ -7,10 +9,10 @@ package net.haoxf.fasterinput.exceptions;
  */
 public class ThirdAccessTokenIllegalException extends RuntimeException {
 
-    private int from;
+    private Consts.ThirdAccount from;
     private String token;
 
-    public ThirdAccessTokenIllegalException(int from, String token, String msg){
+    public ThirdAccessTokenIllegalException(Consts.ThirdAccount from, String token, String msg){
         super(msg);
         this.from = from;
         this.token = token;

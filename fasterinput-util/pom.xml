@@ -39,6 +39,10 @@
             <artifactId>retrofit</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.squareup.retrofit</groupId>
+            <artifactId>converter-gson</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>

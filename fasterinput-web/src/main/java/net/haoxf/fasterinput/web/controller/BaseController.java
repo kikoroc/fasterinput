@@ -1,6 +1,7 @@
 package net.haoxf.fasterinput.web.controller;
 
 import net.haoxf.fasterinput.consts.Consts.Code;
+import net.haoxf.fasterinput.exceptions.ThirdAccessTokenIllegalException;
 import net.haoxf.fasterinput.exceptions.TokenException;
 import net.haoxf.fasterinput.model.HttpRet;
 import net.haoxf.fasterinput.web.WebUtils;
@@ -40,6 +41,9 @@ public class BaseController {
         }else if(ex instanceof NoHandlerFoundException){
             ret.setCode(Code.NOT_FOUND.getCode());
             ret.setMsg(Code.NOT_FOUND.getDescription());
+        }else if(ex instanceof ThirdAccessTokenIllegalException){
+            ret.setCode(Code.THIRD_ACCOUNT_AUTH_ERROR.getCode());
+            ret.setMsg(Code.THIRD_ACCOUNT_AUTH_ERROR.getDescription());
         }else{
             ret.setCode(Code.UNKNOWN_ERROR.getCode());
             ret.setMsg(ex.getMessage());

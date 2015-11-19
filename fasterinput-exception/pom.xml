@@ -11,5 +11,11 @@
 
     <artifactId>fasterinput-exception</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>net.haoxf</groupId>
+            <artifactId>fasterinput-model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 </project>

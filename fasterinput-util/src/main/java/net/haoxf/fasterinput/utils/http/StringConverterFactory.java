@@ -14,6 +14,10 @@ import java.lang.reflect.Type;
  */
 public class StringConverterFactory extends Converter.Factory {
 
+    public static StringConverterFactory create(){
+        return new StringConverterFactory();
+    }
+
     @Override
     public Converter<ResponseBody, ?> fromResponseBody(Type type, Annotation[] annotations) {
         return new StringConverter();
