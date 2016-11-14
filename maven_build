@@ -2,4 +2,4 @@ cd fasterinput/
 mvn clean install -Dmaven.test.skip=true -Pprod/dev
 
 cd fasterinput-web/
-mvn jetty:run -Dorg.eclipse.jetty.annotations.maxWait=120
+mvn jetty:run -Djetty.port=80 -Dorg.eclipse.jetty.annotations.maxWait=120 -Pdev
